@@ -24,7 +24,11 @@
 
   <!-- Menu items -->
   <menuitem id="employees_manager_root_menu" name="Employees Manager" />
-  <menuitem id="employees_manager_sub_menu" name="Employees Andro"
+  <menuitem id="employees_manager_list_menu" name="Employees List"
     parent="employees_manager_root_menu"
     action="employees_manager_action" />
+  <menuitem id="employees_manager_statistiques_menu" name="Statistiques"
+    parent="employees_manager_root_menu"
+    action="employees_manager_action" />
+
 </odoo>

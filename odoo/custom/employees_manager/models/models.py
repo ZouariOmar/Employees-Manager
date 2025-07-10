@@ -8,9 +8,12 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date
+from typing import Self
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import re
+import logging
+from ..pkg.colors import ANSI  # pyright: ignore
 
 
 class employees_manager(models.Model):
@@ -24,16 +27,18 @@ class employees_manager(models.Model):
         None
     """
 
+    _logger = logging.getLogger(__name__)  # For Debuging
+
     # === Model Info ===
     _name = "employees.manager"
     _description = "Employees Manager App"
 
     # === Fields Part ===
-    name = fields.Char(string="Name", required=True)
-    prename = fields.Char(string="Preame", required=True)
+    name = fields.Char(string="Name", required=True, size=20)
+    prename = fields.Char(string="Preame", required=True, size=20)
     email = fields.Char(string="Email", required=True)
     tel = fields.Char(string="Tel", required=True)
-    hire_date = fields.Datetime(string="Hire Date", default=date.today())
+    hire_date = fields.Date(string="Hire Date", default=date.today())
     department = fields.Selection(
         string="Department",
         default="developer",
@@ -64,6 +69,40 @@ class employees_manager(models.Model):
     is_active = fields.Boolean(string="Active", default=True)
 
     # === Contraints Part ===
+    @api.model_create_multi
+    def create(self, vals_list) -> Self:
+        """
+        Verify The unicity of `email` and `tel`
+
+        Note:
+            No need to check the unicity of the `id` (odoo auto-increment id by default)
+
+        Args:
+            self (object): employees_manager object
+            vals_list (list[dict]): All employees_manager records
+
+        Returns:
+            type: Self
+        """
+        for vals in vals_list:
+            email = vals.get("email")
+            tel = vals.get("tel")
+            if email and self.search_count(
+                [("email", "=", email)]
+            ):  # Unicity check: email
+                raise ValidationError(f"This Email Already Exists: {email}")
+            if tel and self.search_count([("tel", "=", tel)]):  # Unicity check: tel
+                raise ValidationError(
+                    f"This Phone Number Already Exists: {tel}")
+
+        # Record Pass the unicity verification!
+        self._logger.info(
+            f"""{ANSI.BLUE}[INFO] Pass the unicity verification succesfully!{
+                ANSI.RESET
+            }"""
+        )
+        return super(employees_manager, self).create(vals_list)
+
     @api.constrains("email")
     def _check_email(self) -> None:
         """
@@ -80,6 +119,11 @@ class employees_manager(models.Model):
             if record.email and not re.match(pattern, record.email):
                 raise ValidationError(
                     "Invalid Email Format: %s" % record.email)
+        # Email check pass
+        self._logger.info(
+            f"""{ANSI.BLUE}[INFO] Pass the `Email` Check succesfully!{
+                ANSI.RESET}"""
+        )
 
     @api.constrains("tel")
     def _check_tel(self) -> None:
@@ -96,3 +140,8 @@ class employees_manager(models.Model):
         for record in self:
             if record.tel and not (record.tel.isdigit() and len(record.tel) == 8):
                 raise ValidationError("Invalid Tel Format: %s" % record.tel)
+        # Tel check pass
+        self._logger.info(
+            f"""{ANSI.BLUE}[INFO] Pass the `Tel` Check succesfully!{
+                ANSI.RESET}"""
+        )

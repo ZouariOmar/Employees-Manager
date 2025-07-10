@@ -1,0 +1,18 @@
+<odoo>
+  <record id="view_statistiques_tree" model="ir.ui.view">
+    <field name="name">statistiques.tree</field>
+    <field name="model">employees.manager</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" />
+        <field name="prename" />
+      </list>
+    </field>
+  </record>
+
+  <record id="action_statistiques" model="ir.actions.act_window">
+    <field name="name">Statistiques</field>
+    <field name="res_model">employees.manager</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

@@ -7,7 +7,7 @@
 
 <h1 align="center">
   <br>
-  <img src="/home/zouari_omar/Documents/Daily/Projects/Employees Manager/odoo/custom/employees_manager/static/description/icon.png" alt="Employees Manager" width="200">
+  <img src="odoo/custom/employees_manager/static/description/icon.png" alt="Employees Manager" width="200">
   <br>
   Employees Manager
   <br>
@@ -16,20 +16,20 @@
 <h6 align="center">Employees Manager is a lightweight <a href="https://www.odoo.com" target="_blank">Odoo</a> module designed to simplify the management of employee records. It allows you to create, view, edit, and delete employee profiles directly within the Odoo backend.</h6>
 
 <p align="center">
-  <a href="https://img.shields.io/badge/Linux-FCC624?style=Plastic&logo=linux&logoColor=black">
-    <img src="https://img.shields.io/badge/Linux-FCC624?style=Plastic&logo=linux&logoColor=black" alt="Linux">
+  <a href="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux">
   </a>
-  <a href="https://img.shields.io/badge/python-3670A0?style=Plastic&logo=python&logoColor=ffdd54">
-    <img src="https://img.shields.io/badge/python-3670A0?style=Plastic&logo=python&logoColor=ffdd54" alt="Python">
+  <a href="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
+    <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
   </a>
-  <a href="https://img.shields.io/badge/bash_script-%23121011.svg?style=Plastic&logo=gnu-bash&logoColor=white">
-    <img src="https://img.shields.io/badge/bash_script-%23121011.svg?style=Plastic&logo=gnu-bash&logoColor=white" alt="Bash">
+  <a href="https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white">
+    <img src="https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash">
   </a>
-  <a href="https://img.shields.io/badge/html5-%23E34F26.svg?style=Plastic&logo=html5&logoColor=white">
-    <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=Plastic&logo=html5&logoColor=white" alt="HTML5">
+  <a href="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   </a>
-  <a href="https://img.shields.io/badge/javascript-%23323330.svg?style=Plastic&logo=javascript&logoColor=%23F7DF1E">
-    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=Plastic&logo=javascript&logoColor=%23F7DF1E" alt="HTML5">
+  <a href="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
+    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="HTML5">
   </a>
 </p>
 
@@ -61,16 +61,16 @@
 ### 🚀 Installation
 
 ```bash
-# Go to your Odoo custom addons directory
-cd /path/to/your/odoo/addons
-
 # Clone this repo
 git clone https://github.com/ZouariOmar/Employees-Manager.git
+
+# Move the `employees_manager` module to your Odoo custom addons directory
+mv Employees-Manager/odoo/custom/employees_manager /path/to/your/odoo/addons
 
 # Restart Odoo
 # Activate Developer Mode in Odoo
 # Go to Apps > Update Apps List
-# Search for Employees Manager and click Install
+# Search for "Employees Manager" and click Install
 ```
 
 ## 🤝 Contributing
